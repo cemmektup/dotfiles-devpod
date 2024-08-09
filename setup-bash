@@ -1,0 +1,22 @@
+#!/bin/bash
+
+export XDG_CONFIG_HOME="$HOME"/.config
+mkdir -p "$XDG_CONFIG_HOME"
+mkdir -p "$XDG_CONFIG_HOME"/nixpkgs
+ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME"/nixpkgs/config.nix
+
+echo "Activating feature 'alpine'"
+apk add sudo
+apk add shadow
+apk add curl
+apk add xz
+apk add util-linux-login
+
+echo "Installing nix"
+curl -L https://nixos.org/nix/install | sh -s -- --daemon
+
+unset LD_PRELOAD;
+
+# install Nix packages from config.nix
+~/.nix-profile/bin/nix-env -iA nixpkgs.myPackages
+

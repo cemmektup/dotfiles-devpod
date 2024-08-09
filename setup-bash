@@ -21,4 +21,6 @@ unset LD_PRELOAD;
 # install Nix packages from config.nix
 ~/.nix-profile/bin/nix-env -iA nixpkgs.myPackages
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 cd "$HOME/dotfiles" && stow -R nvim shell tmux

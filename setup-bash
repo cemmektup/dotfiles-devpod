@@ -21,5 +21,4 @@ unset LD_PRELOAD;
 # install Nix packages from config.nix
 ~/.nix-profile/bin/nix-env -iA nixpkgs.myPackages
 
-cd "$HOME/dotfiles"
-stow -R nvim shell tmux
+cd "$HOME/dotfiles" && stow -R nvim shell tmux

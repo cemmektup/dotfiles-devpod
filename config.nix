@@ -4,6 +4,16 @@
       name = "cem-tools";
       paths = [
         bash-completion
+        cmake
+        fontforge
+        makeWrapper
+        pkg-config
+        gnumake
+        gcc
+        libiconv
+        autoconf
+        automake
+        libtool
         neovim
         nodejs_22
         starship

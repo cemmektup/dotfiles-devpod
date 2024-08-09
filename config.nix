@@ -3,7 +3,6 @@
     myPackages = pkgs.buildEnv {
       name = "cem-tools";
       paths = [
-        bash
         bash-completion
         neovim
         nodejs_22
@@ -11,6 +10,14 @@
         fd
         ripgrep
         fzf
+        bat
+        jq
+        tree
+	stow
+	python3
+        tmux
+        lua5.3
+        luarocks
       ];
     };
   };

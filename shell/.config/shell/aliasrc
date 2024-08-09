@@ -1,0 +1,43 @@
+
+# verbose
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	bc="bc -ql" \
+	mkd="mkdir -pv"
+
+# Colorize commands when possible.
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi"
+
+# These common commands are just too long! Abbreviate them.
+alias \
+	ka="killall" \
+	g="git" \
+	# e="$EDITOR" \
+	v="$EDITOR" \
+	vi="$EDITOR" \
+	vim="$EDITOR" \
+	z="zathura"
+
+# aliases
+# alias gc="sudo openfortivpn -c /etc/openfortivpn/config-gc-gruppe"
+# alias tm="tmux a || tmux"
+alias t="tree -L 1 "
+alias tt="tree -L 2 "
+alias r="radian"
+alias f="floaterm"
+alias cat="bat"
+
+alias af="alias|fzf-tmux -p"
+alias ef="export|fzf-tmux -p"
+
+se() { du -a --exclude=.git $HOME/dotfiles | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+sp() { du -a --exclude=.git $HOME/p | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+# vf() { fzf | xargs -r -I % $EDITOR % ;}
+
+alias vf="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs $EDITOR"

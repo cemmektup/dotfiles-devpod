@@ -1,0 +1,226 @@
+#!/bin/bash
+
+# see https://www.hschne.at/git-aliases/
+#
+# Functions
+#
+function git_main_branch() {
+  echo 'main'
+}
+
+function git_current_branch() {
+  echo "$(git rev-parse --abbrev-ref HEAD)"
+}
+
+#
+# Aliases
+# (sorted alphabetically)
+#
+
+alias g='git'
+
+alias ga='git add'
+alias gaa='git add --all'
+#alias gapa='git add --patch'
+#alias gau='git add --update'
+#alias gav='git add --verbose'
+#alias gap='git apply'
+#alias gapt='git apply --3way'
+
+# branch
+alias gb='git branch'
+alias gba='git branch --all'
+alias gbd='git branch --delete'
+alias gbD='git branch --delete --force'
+alias gbg='git branch -vv | grep ": entfernt\]"'
+alias gprune='git branch --no-color -vv | grep ": entfernt\]" | awk '"'"'{print $1}'"'"' | xargs git branch -D'
+alias gbgd='git branch --no-color -vv | grep ": entfernt\]" | awk '"'"'{print $1}'"'"' | xargs git branch -d'
+alias gbgD='git branch --no-color -vv | grep ": entfernt\]" | awk '"'"'{print $1}'"'"' | xargs git branch -D'
+
+alias gbl='git blame -b -w'
+alias gbnm='git branch --no-merged'
+alias gbr='git branch --remote'
+
+
+# bisect
+#alias gbs='git bisect'
+#alias gbsb='git bisect bad'
+#alias gbsg='git bisect good'
+#alias gbsr='git bisect reset'
+#alias gbss='git bisect start'
+
+
+# commit
+alias gc='git commit --verbose'
+alias gc!='git commit --verbose --amend'
+alias gcn!='git commit --verbose --no-edit --amend'
+alias gca='git commit --verbose --all'
+alias gca!='git commit --verbose --all --amend'
+alias gcan!='git commit --verbose --all --no-edit --amend'
+#alias gcans!='git commit --verbose --all --signoff --no-edit --amend'
+alias gcam='git commit --all --message'
+#alias gcsm='git commit --signoff --message'
+#alias gcas='git commit --all --signoff'
+#alias gcasm='git commit --all --signoff --message'
+
+
+alias gcf='git config --list'
+alias gcl='git clone --recurse-submodules'
+
+alias gclean='git clean --interactive -d'
+alias gpristine='git reset --hard && git clean --force -dfx'
+
+# checkout
+alias gcom='git checkout $(git_main_branch)'
+#alias gcod='git checkout $(git_develop_branch)'
+alias gco='git checkout'
+alias gcob='git checkout -b'
+alias gcor='git checkout --recurse-submodules'
+alias gfzf='git branch | grep -v "^\*" | fzf-tmux -p | xargs git checkout'
+alias gfzfa='git branch -r | grep -v "^\*" | fzf-tmux -p | xargs git switch -c'
+
+alias gcount='git shortlog --summary --numbered'
+
+# diff
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gdcw='git diff --cached --word-diff'
+alias gdct='git describe --tags $(git rev-list --tags --max-count=1)'
+alias gdo='git diff "$(git_current_branch)"..remotes/origin/"$(git_current_branch)"'
+alias gds='git diff --staged'
+alias gdt='git diff-tree --no-commit-id --name-only -r'
+alias gdup='git diff @{upstream}'
+alias gdw='git diff --word-diff'
+alias gdm='git diff --name-only $(git_main_branch) | fzf-tmux -p'
+
+alias gf='git fetch'
+alias gfo='git fetch origin'
+alias gfa='git fetch --all -Pp'
+
+alias gfg='git ls-files | grep'
+
+alias ghh='git help'
+
+
+
+# Logging helpers
+alias glg='git log --stat'
+alias glgp='git log --stat --patch'
+alias glgg='git log --graph'
+alias glgga='git log --graph --decorate --all'
+alias glgm='git log --graph --max-count=10'
+alias glo='git log --oneline --decorate'
+alias glol="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset'"
+alias glols="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat"
+alias glod="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset'"
+alias glods="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ad) %C(bold blue)<%an>%Creset' --date=short"
+alias glola="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all"
+alias glog='git log --oneline --decorate --graph'
+alias gloga='git log --oneline --decorate --graph --all'
+
+alias gls='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
+alias gll='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat'
+alias gdate='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative'
+alias gdatelong='git log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
+
+# merge
+alias gm='git merge'
+alias gmom='git merge origin/$(git_main_branch)'
+alias gmtl='git mergetool --no-prompt'
+alias gmtlvim='git mergetool --no-prompt --tool=vimdiff'
+alias gmum='git merge upstream/$(git_main_branch)'
+alias gma='git merge --abort'
+alias gms="git merge --squash"
+
+
+alias gp='git pull'
+alias gpo='git pull origin "$(git_current_branch)"'
+alias gpr='git pull --rebase'
+
+# push
+alias gpp='git push'
+alias gppd='git push --dry-run'
+alias gppo='git push origin "$(git_current_branch)"'
+
+alias gppf!='git push --force'
+alias gppoat='git push origin --all && git push origin --tags'
+alias gppod='git push origin --delete'
+alias gppv='git push --verbose'
+
+# remote
+alias gr='git remote'
+alias gra='git remote add'
+
+# rebase
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbd='git rebase $(git_develop_branch)'
+alias grbi='git rebase --interactive'
+alias grbm='git rebase $(git_main_branch)'
+alias grbom='git rebase origin/$(git_main_branch)'
+alias grbo='git rebase --onto'
+alias grbs='git rebase --skip'
+
+# reset && revert
+alias grev='git revert'
+alias grh='git reset'
+alias grhh='git reset --hard'
+alias groh='git reset origin/$(git_current_branch) --hard'
+alias grm='git rm'
+alias grmc='git rm --cached'
+alias grs='git restore'
+alias grset='git remote set-url'
+alias grss='git restore --source'
+alias grst='git restore --staged'
+alias grt='cd "$(git rev-parse --show-toplevel || echo .)"'
+alias gru='git reset --'
+alias grup='git remote update'
+alias grv='git remote --verbose'
+
+#status
+#alias gsb='git status --short --branch'
+#alias gsh='git show'
+#alias gsps='git show --pretty=short --show-signature'
+alias gss='git status --short'
+alias gst='git status'
+
+# stash
+alias gstaa='git stash apply'
+alias gstc='git stash clear'
+alias gstd='git stash drop'
+alias gstl='git stash list'
+alias gstp='git stash pop'
+alias gsts='git stash show --text'
+alias gstu='gsta --include-untracked'
+alias gstall='git stash --all'
+
+# switch
+alias gsw='git switch'
+alias g-='git switch -'
+alias gswc='git switch --create'
+alias gswm='git switch $(git_main_branch)'
+alias gswd='git switch $(git_develop_branch)'
+
+# tag
+alias gts='git tag --sign'
+alias gtv='git tag | sort -V'
+
+
+# worktree
+alias gwt='git worktree'
+alias gwta='git worktree add'
+alias gwtls='git worktree list'
+alias gwtmv='git worktree move'
+alias gwtrm='git worktree remove'
+
+# am
+alias gam='git am'
+alias gamc='git am --continue'
+alias gams='git am --skip'
+alias gama='git am --abort'
+alias gamscp='git am --show-current-patch'
+
+#
+alias gfm='git stash;gco main;gf;gp;g-;grb main'
+alias gmm='git stash;gco main;gf;gp;g-;gm main'

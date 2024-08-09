@@ -1,0 +1,27 @@
+require("nvim-ts-autotag").setup {
+  enable = true,
+  enable_rename = true,
+  enable_close = false,
+  enable_close_on_slash = false,
+
+  filetypes = {
+    "astro",
+    "glimmer",
+    "handlebars",
+    "hbs",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "jsx",
+    "markdown",
+    "php",
+    "rescript",
+    "svelte",
+    "tsx",
+    "twig",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "xml",
+  },
+}

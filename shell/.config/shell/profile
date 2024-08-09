@@ -1,0 +1,36 @@
+#!/bin/bash
+
+
+eval "$(starship init bash)"
+# [[ -f ~/.config/shell/sshagent ]] && source ~/.config/shell/sshagent
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Default programs:
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+# ~/ Clean-up:
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8
+
+# set PATH
+# composer
+PATH="$PATH:./vendor/bin:../vendor/bin"
+PATH="$HOME/"'.config/composer/vendor/bin':"$PATH"
+# pip
+PATH="$HOME/"'.local/bin/':"$PATH"
+
+
+[[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc ]] && source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc
+[[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/gitrc ]] && source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/gitrc
+[[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/fzfrc ]] && source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/fzfrc
+

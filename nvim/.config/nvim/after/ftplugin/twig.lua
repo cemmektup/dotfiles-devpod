@@ -1,0 +1,1 @@
+-- vim.api.nvim_set_keymap('n', '<leader>rf', '<CMD>FormatFile<CR>', { noremap = true, desc = '[R]efactor [F]ormat' })

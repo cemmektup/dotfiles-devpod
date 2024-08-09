@@ -114,3 +114,5 @@ fi
 
 [[ -f ~/.config/shell/profile ]] && source ~/.config/shell/profile
 
+unset LD_PRELOAD;
+

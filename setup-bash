@@ -4,6 +4,7 @@ export XDG_CONFIG_HOME="$HOME"/.config
 mkdir -p "$XDG_CONFIG_HOME"
 mkdir -p "$XDG_CONFIG_HOME"/nixpkgs
 ln -sf "$PWD/config.nix" "$XDG_CONFIG_HOME"/nixpkgs/config.nix
+ln -sf "$PWD/.bashrc" "$HOME"/.bashrc
 
 echo "Activating feature 'alpine'"
 apk add sudo
@@ -20,3 +21,5 @@ unset LD_PRELOAD;
 # install Nix packages from config.nix
 ~/.nix-profile/bin/nix-env -iA nixpkgs.myPackages
 
+cd "$HOME/dotfiles"
+stow -R nvim shell tmux

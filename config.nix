@@ -20,6 +20,7 @@
         fd
         ripgrep
         fzf
+        fzf-git-sh
         bat
         jq
         tree

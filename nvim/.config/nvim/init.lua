@@ -8,6 +8,7 @@ require "user.utils"
 require "user.helpers"
 require "user.table"
 
+require("dotenv").setup()
 require("mini.ai").setup()
 require "user.globals"
 require "user.augroup"

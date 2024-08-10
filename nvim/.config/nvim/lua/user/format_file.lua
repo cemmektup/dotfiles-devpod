@@ -3,13 +3,18 @@ local M = {}
 M.config = {
 
   twig = {
-    command = { "make", "yarn/'prettier templates/*/**/file_name --write'" }
+    command = { "make", "yarn/'prettier templates/*/**/file_name --write'" },
   },
-
+  php = {
+    command = {
+      "/tools/php-cs-fixer/vendor/bin/php-cs-fixer",
+      "fix /srv/app/*/**/file_name --config=/srv/app/.php-cs-fixer.dist.php",
+    },
+  },
 }
 
 M.format_on_save = function()
-  local file_name = vim.fn.expand('%:t')
+  local file_name = vim.fn.expand "%:t"
   local filetype = vim.bo.filetype
 
   local config = M.config[filetype]

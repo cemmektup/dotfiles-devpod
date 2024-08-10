@@ -8,7 +8,10 @@ require "user.utils"
 require "user.helpers"
 require "user.table"
 
-require("dotenv").setup()
+require("dotenv").setup {
+  enable_on_load = true, -- will load your .env file upon loading a buffer
+  verbose = false, -- show error notification if .env file is not found and if .env is loaded
+}
 require("mini.ai").setup()
 require "user.globals"
 require "user.augroup"

@@ -29,6 +29,9 @@
         tmux
         lua5.3
         luarocks
+        wget
+        unzip
+        gzip
       ];
     };
   };

@@ -32,6 +32,8 @@
         wget
         unzip
         gzip
+        viu
+        chafa
       ];
     };
   };

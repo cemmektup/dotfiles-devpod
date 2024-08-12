@@ -39,6 +39,7 @@ require "user.parrot"
 -- require'user.repl'
 -- require'user.nvim-repl'
 require "user.macros"
+require "user.tmux"
 
 require("package-info").setup()
 

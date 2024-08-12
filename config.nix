@@ -5,6 +5,7 @@
       paths = [
         bash-completion
         cmake
+        fira-code
         ps
         fontforge
         makeWrapper

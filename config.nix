@@ -6,6 +6,7 @@
         bash-completion
         cmake
         fira-code
+        fira-code-symbols
         ps
         fontforge
         makeWrapper

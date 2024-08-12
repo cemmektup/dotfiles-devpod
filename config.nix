@@ -5,6 +5,7 @@
       paths = [
         bash-completion
         cmake
+        ps
         fontforge
         makeWrapper
         pkg-config

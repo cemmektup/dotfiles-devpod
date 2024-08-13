@@ -68,6 +68,8 @@ vim.opt.foldcolumn = "3"
 vim.opt.foldenable = true
 vim.opt.foldlevelstart = 3
 
+vim.g.maximizer_set_default_mapping = O
+
 vim.opt.spelllang = "en_us,de"
 -- vim.opt.spell = true
 

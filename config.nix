@@ -17,6 +17,7 @@
         autoconf
         automake
         libtool
+        htop
         neovim
         nodejs_22
         starship

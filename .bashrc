@@ -112,7 +112,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-[[ -f ~/.vars ]] && source ~/.vars
 [[ -f ~/.config/shell/profile ]] && source ~/.config/shell/profile
 
 unset LD_PRELOAD;

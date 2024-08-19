@@ -41,3 +41,5 @@ sp() { du -a --exclude=.git $HOME/p | awk '{print $2}' | fzf | xargs -r $EDITOR 
 # vf() { fzf | xargs -r -I % $EDITOR % ;}
 
 alias vf="fd --type f --hidden --exclude .git | fzf-tmux -p --reverse | xargs $EDITOR"
+
+alias nixupdate="~/.nix-profile/bin/nix-env -iA nixpkgs.myPackages"

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# nix
+PATH="$HOME/"'.nix-profile/bin:'"$PATH"
 
 eval "$(starship init bash)"
 # [[ -f ~/.config/shell/sshagent ]] && source ~/.config/shell/sshagent

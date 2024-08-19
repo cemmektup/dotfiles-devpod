@@ -276,9 +276,7 @@ require("user.symfony").define_symfony_find_file_keymap(
 )
 
 -- Leader g
--- TODO: neogit
 vim.api.nvim_set_keymap("n", "<Leader>gg", "<cmd>lua require('neogit').open()<CR>", { noremap = true, desc = "Neogit" })
-vim.api.nvim_set_keymap("n", "<Leader>gl", "<cmd>FloatermNew lazygit<CR>", { noremap = true, desc = "Lazygit" })
 vim.api.nvim_set_keymap(
   "n",
   "<Leader>gs",

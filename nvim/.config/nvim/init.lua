@@ -39,6 +39,7 @@ require "user.parrot"
 -- require'user.repl'
 -- require'user.nvim-repl'
 require "user.macros"
+require "user.git"
 
 require("package-info").setup()
 

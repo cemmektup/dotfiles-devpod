@@ -25,7 +25,6 @@ require("lazy").setup({
   "rhysd/clever-f.vim",
   -- 'justinmk/vim-sneak',           -- Check if you need this
   "terryma/vim-multiple-cursors", -- CTRL + N for multiple cursors
-  "szw/vim-maximizer",
   -- 'jiangmiao/auto-pairs',
   "christoomey/vim-tmux-navigator",
   "windwp/nvim-ts-autotag",

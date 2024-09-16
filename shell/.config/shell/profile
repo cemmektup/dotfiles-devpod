@@ -35,5 +35,6 @@ PATH="$HOME/"'.local/bin/':"$PATH"
 [[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc ]] && source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc
 [[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/gitrc ]] && source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/gitrc
 [[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/fzfrc ]] && source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/fzfrc
+[[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/sshrc ]] && source ${XDG_CONFIG_HOME:-$HOME/.config}/shell/sshrc
 
 [[ -f ~/.vars ]] && source ~/.vars

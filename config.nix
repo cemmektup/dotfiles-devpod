@@ -38,6 +38,8 @@
         gzip
         viu
         chafa
+        perl
+        xmlstarlet
       ];
     };
   };

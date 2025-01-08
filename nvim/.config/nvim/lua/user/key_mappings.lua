@@ -42,7 +42,7 @@ set("n", "N", "Nzzzv")
 -- paste without change the register
 set("x", "<leader><leader>p", [["_dP]], { noremap = true, desc = "Paste without change the register" })
 set({ "n", "v" }, "<leader><leader>d", [["_d]], { noremap = true, desc = "Delete without change the register" })
-vim.api.nvim_set_keymap("v", "<leader>yy", ":'<,'>w !nc host.docker.internal 12345<CR>", { noremap = true })
+vim.api.nvim_set_keymap("v", "<leader>yy", ":w !nc host.docker.internal 12345<CR>", { noremap = true })
 
 -- Move line(s) up and down
 vim.api.nvim_set_keymap("i", "<M-j>", "<Esc>:m .+1<CR>==gi", { noremap = true })
